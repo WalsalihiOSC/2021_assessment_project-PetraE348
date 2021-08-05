@@ -34,7 +34,7 @@ class interface:
                 self.level1 = Button(self.level_frame, text="Level 1", font=50, bg="#FF00FF", command=self.topic1_win ).grid(column=1, row=5)
                 self.level2 = Button(self.level_frame, text="Level 2", font=50, bg="#99dd1c", command=self.topic2_win ).grid(column=1, row=6)
                 self.level3 = Button(self.level_frame, text="Level 3", font=50, bg="#25b1e9", command=self.topic3_win ).grid(column=1, row=7)
-                self.backlevel = Button(self.level_frame, text="Back", font=50, command=self.backlevel).grid(column=1, row=8)
+                self.backlevel = Button(self.level_frame, text="Back",bg='Orange', font=50, command=self.backlevel).grid(column=1, row=8)
                 
         def backlevel(self):
                 self.level_frame.grid_forget()
@@ -42,15 +42,15 @@ class interface:
                 
         def topic1_win(self):
                 self.level_frame.grid_forget()
-                self.topic1_frame = Frame(root, width="200", height="200")
+                self.topic1_frame = Frame(root, width="600", height="600",bg="skyblue")
                 self.topic1_frame.grid(row=0, column=0, padx=10, pady=5)
-                self.title = Label(self.topic1_frame, text="MATHS HELPER").grid(column=3, row=0, pady=5)
-                self.label= Label(self.topic1_frame, text="Select a topic: ", fg='black').grid(column=3, row=1)
-                self.addition1= Button(self.topic1_frame, text="Addition", bg="#FF00FF", command=self.questions1 ).grid(column=3, row=3)
-                self.subtraction1 = Button(self.topic1_frame, text="Subtraction", bg="#99dd1c", command=self.questions1 ).grid(column=3, row=4)
-                self.multiplication1 = Button(self.topic1_frame, text="Multiplication", bg="#25b1e9", command=self.questions1 ).grid(column=3, row=5)
-                self.division1 = Button(self.topic1_frame, text="Division", bg="#25b1e9", command=self.questions1 ).grid(column=3, row=6)
-                self.back = Button(self.topic1_frame, text="Back", command=self.back1).grid(column=3, row=8)
+                self.title = Label(self.topic1_frame,font=("Arial 18 bold underline"), text="MATHS HELPER",bg="skyblue").grid(column=1, row=0, padx=150)
+                self.label= Label(self.topic1_frame, text="Select a topic: ", font=50,bg="skyblue", fg='black').grid(column=1, row=1)
+                self.addition1= Button(self.topic1_frame, text="Addition", font=50, bg="#FF00FF", command=self.questions1 ).grid(column=1, row=3)
+                self.subtraction1 = Button(self.topic1_frame, text="Subtraction", font=50, bg="#99dd1c", command=self.questions1 ).grid(column=1, row=4)
+                self.multiplication1 = Button(self.topic1_frame, text="Multiplication", font=50, bg="#25b1e9", command=self.questions1 ).grid(column=1, row=5)
+                self.division1 = Button(self.topic1_frame, text="Division", font=50, bg="#9c57d5", command=self.questions1 ).grid(column=1, row=6)
+                self.back = Button(self.topic1_frame, text="Back",bg='Orange', font=50, command=self.back1).grid(column=1, row=8)
                 
         def back1(self):
                 self.topic1_frame.grid_forget()
@@ -58,31 +58,31 @@ class interface:
 
         def topic2_win(self):
                 self.level_frame.grid_forget()
-                self.topic2_frame = Frame(root, width="200", height="200")
+                self.topic2_frame = Frame(root, width="600", height="600",bg="skyblue")
                 self.topic2_frame.grid(row=0, column=0, padx=10, pady=5)
-                self.title = Label(self.topic2_frame, text="MATHS HELPER").grid(column=3, row=0, pady=5)
-                self.label= Label(self.topic2_frame, text="Select a topic: ", fg='black').grid(column=3, row=1)
-                self.addition2= Button(self.topic2_frame, text="Addition", bg="#FF00FF", command=self.questions2  ).grid(column=3, row=3)
-                self.subtraction2 = Button(self.topic2_frame, text="Subtraction", bg="#99dd1c", command=self.questions2  ).grid(column=3, row=4)
-                self.multiplication2 = Button(self.topic2_frame, text="Multiplication", bg="#25b1e9", command=self.questions2  ).grid(column=3, row=5)
-                self.division2 = Button(self.topic2_frame, text="Division", bg="#25b1e9", command=self.questions2 ).grid(column=3, row=6)
-                self.back = Button(self.topic2_frame, text="Back", command=self.back2).grid(column=3, row=8)
-
+                self.title = Label(self.topic2_frame,font=("Arial 18 bold underline"), text="MATHS HELPER",bg="skyblue").grid(column=1, row=0, padx=150)
+                self.label= Label(self.topic2_frame, text="Select a topic: ", font=50,bg="skyblue", fg='black').grid(column=1, row=1)
+                self.addition2= Button(self.topic2_frame, text="Addition", font=50, bg="#FF00FF", command=self.questions2 ).grid(column=1, row=3)
+                self.subtraction2 = Button(self.topic2_frame, text="Subtraction", font=50, bg="#99dd1c", command=self.questions2 ).grid(column=1, row=4)
+                self.multiplication2 = Button(self.topic2_frame, text="Multiplication", font=50, bg="#25b1e9", command=self.questions2 ).grid(column=1, row=5)
+                self.division2 = Button(self.topic2_frame, text="Division", font=50, bg="#9c57d5", command=self.questions2 ).grid(column=1, row=6)
+                self.back = Button(self.topic2_frame, text="Back",bg='Orange', font=50, command=self.back2).grid(column=1, row=8)
+        
         def back2(self):
                 self.topic2_frame.grid_forget()
                 self.level_win()
 
         def topic3_win(self):
                 self.level_frame.grid_forget()
-                self.topic3_frame = Frame(root, width="200", height="200")
+                self.topic3_frame = Frame(root, width="600", height="600",bg="skyblue")
                 self.topic3_frame.grid(row=0, column=0, padx=10, pady=5)
-                self.title = Label(self.topic3_frame, text="MATHS HELPER").grid(column=3, row=0, pady=5)
-                self.label= Label(self.topic3_frame, text="Select a topic: ", fg='black').grid(column=3, row=1)
-                self.addition3= Button(self.topic3_frame, text="Addition", bg="#FF00FF", command=self.questions3 ).grid(column=3, row=3)
-                self.subtraction3 = Button(self.topic3_frame, text="Subtraction", bg="#99dd1c", command=self.questions3 ).grid(column=3, row=4)
-                self.multiplication3 = Button(self.topic3_frame, text="Multiplication", bg="#25b1e9", command=self.questions3 ).grid(column=3, row=5)
-                self.division3 = Button(self.topic3_frame, text="Division", bg="#25b1e9", command=self.questions3 ).grid(column=3, row=6)
-                self.back = Button(self.topic3_frame, text="Back", command=self.back3).grid(column=3, row=8)
+                self.title = Label(self.topic3_frame,font=("Arial 18 bold underline"), text="MATHS HELPER",bg="skyblue").grid(column=1, row=0, padx=150)
+                self.label= Label(self.topic3_frame, text="Select a topic: ", font=50,bg="skyblue", fg='black').grid(column=1, row=1)
+                self.addition3= Button(self.topic3_frame, text="Addition", font=50, bg="#FF00FF", command=self.questions3 ).grid(column=1, row=3)
+                self.subtraction3 = Button(self.topic3_frame, text="Subtraction", font=50, bg="#99dd1c", command=self.questions3 ).grid(column=1, row=4)
+                self.multiplication3 = Button(self.topic3_frame, text="Multiplication", font=50, bg="#25b1e9", command=self.questions3 ).grid(column=1, row=5)
+                self.division3 = Button(self.topic3_frame, text="Division", font=50, bg="#9c57d5", command=self.questions3 ).grid(column=1, row=6)
+                self.back = Button(self.topic3_frame, text="Back",bg='Orange', font=50, command=self.back3).grid(column=1, row=8)
                 
         def back3(self):
                 self.topic3_frame.grid_forget()
