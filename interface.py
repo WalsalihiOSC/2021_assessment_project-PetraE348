@@ -90,37 +90,39 @@ class interface:
 
         def questions1(self):
                 self.topic1_frame.grid_forget()
-                self.questions1_frame = Frame(root, width="600", height="600")
+                self.questions1_frame = Frame(root, width="600", height="600",bg="skyblue")
                 self.questions1_frame.grid(row=0, column=0)
-                self.title = Label(self.questions1_frame,font=("Arial 18 bold underline"), text="MATHS HELPER",bg="skyblue").grid(column=2, row=0, padx=150)
-                self.title2 = Label(self.questions1_frame, text="Level One Addition ", font=50).grid(column=2, row=1)
+                self.title = Label(self.questions1_frame,font=("Arial 18 bold underline"), text="MATHS HELPER",bg="skyblue").grid(column=2, row=0)
+                self.title2 = Label(self.questions1_frame, text="Level One Addition ", font=50,bg="skyblue").grid(column=2, row=1)
                 self.question_win()
-                self.back = Button(self.questions1_frame, text="Back", command=self.backq1).grid(column=1, row=4)
-                self.finish = Button(self.questions1_frame, text="Finished", command=self.q1gridforget).grid(column=3, row=0)
-                self.solving = Entry(self.questions1_frame)
+                self.back = Button(self.questions1_frame, text="Back",bg='Orange', font=50, command=self.backq1).grid(column=1, row=4, padx=40, pady=50)
+                self.finish = Button(self.questions1_frame, text="Finished", font=50, bg="#9c57d5",command=self.q1gridforget).grid(column=3, row=0)
+                self.solving = Entry(self.questions1_frame, text="      " ,font=50)
                 self.solving.grid(column=3, row=3)
 
-                self.check = Button(self.questions1_frame, text="Submit", command= lambda: self.checkb(self.solving))
+                self.check = Button(self.questions1_frame, text="Submit", font=50, bg='#99dd1c', command= lambda: self.checkb(self.solving))
                 self.check.grid(column=3, row=4)
 
                 self.nextb = Button(self.questions1_frame, text="Next", command=self.question_win)
-                self.nextb.grid(column=3,row=2)
+                self.nextb.grid(column=3,row=2) 
                 
         def checkb(self,var1):
                 if var1.get() == str(self.correct_answer()):
-                        correct = Label(root, text="Correct!", fg="green")
-                        correct.grid(column=1, row=1)
+                        correct = Label(self.questions1_frame, text="Correct!", fg="green")
+                        correct.grid(column=3, row=3)
                         
                 else:
-                        wrong = Label(root, text="Wrong!", fg="red")
+                        wrong = Label(self.questions1_frame, text="Wrong!", fg="red")
                         wrong.grid(column=1, row=1)
+                
 
         def question_win(self):
                 self.num1update = random.randrange(1,20)
                 self.num2update = random.randrange(1,20)
                 
-                question = Label(self.questions1_frame, text=f"{self.num1update} + {self.num2update} = ")
-                question.grid(column=2, row=2)
+                question = Label(self.questions1_frame,font=50, text=f"{self.num1update} + {self.num2update} = ",bg="skyblue")
+                question.grid(column=2, row=2,pady=20)
+                
 
         def correct_answer(self):                
                 return self.num1update + self.num2update
