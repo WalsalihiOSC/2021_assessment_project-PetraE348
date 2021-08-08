@@ -105,15 +105,19 @@ class interface:
 
                 self.nextb = Button(self.questions1_frame, text="Next", command=self.question_win)
                 self.nextb.grid(column=3,row=2) 
-                
+        
         def checkb(self,var1):
+                self.score =0
+                
                 if var1.get() == str(self.correct_answer()):
-                        correct = Label(self.questions1_frame, text="Correct!", fg="green")
-                        correct.grid(column=3, row=3)
-                        
+                        self.correct = Label(self.questions1_frame, text="Correct!", fg="green")
+                        self.correct.grid(column=3, row=3)
+                        self.score +=1
+                        self.total_score = Label(self.questions1_frame, text=f"You have scored {self.score} /10!").grid(column=3, row=5)
+
                 else:
                         wrong = Label(self.questions1_frame, text="Wrong!", fg="red")
-                        wrong.grid(column=1, row=1)
+                        wrong.grid(column=3, row=3)
                 
 
         def question_win(self):
@@ -188,7 +192,7 @@ class interface:
 
 interface()
 
-root.title("Ormiston Course Selection")
+root.title("Ormiston Computing- Maths Helper")
 root.geometry("545x385")
 
 root.mainloop()
