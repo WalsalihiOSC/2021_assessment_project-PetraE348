@@ -3,8 +3,7 @@ root = Tk()
 root.title("Maths Helper")
 root.config(bg="skyblue")
 import random
-from PIL import ImageTk, Image
-from tkinter import messagebox
+
 
 num = [1,2,3,4,5,6,7,8,9,10]
 
@@ -15,7 +14,7 @@ class interface:
                 self.name_win.grid(row=0, column=0, padx=10, pady=5)
                 #Title 'Student Details'
                 self.title = Label(self.name_win, font=("Arial 18 bold underline"), text="MATHS HELPER",bg="skyblue",).grid(column=1, row=0, padx=150)
-                self.player_name_label = Label(self.name_win, text="Enter your name: ", font=50, fg='#9c57d5',bg="skyblue").grid(column=1, row=1, pady=50)
+                self.player_name_label = Label(self.name_win, text="Enter your name: ", font=100, fg='#9c57d5',bg="skyblue").grid(column=1, row=1, pady=50)
                 self.player_name = Entry(self.name_win, text="            ", font=50)
                 self.player_name.grid(column=1, row=2)
                 self.submitb = Button(self.name_win, text="Submit",fg='black', font=50, bg='#99dd1c', command=self.submit).grid(column=1, row=4, pady=50)
@@ -99,10 +98,8 @@ class interface:
                 self.finish = Button(self.questions1_frame, text="Finished", font=50, bg="#9c57d5",command=self.q1gridforget).grid(column=3, row=0)
                 self.solving = Entry(self.questions1_frame, text="      " ,font=50)
                 self.solving.grid(column=3, row=3)
-
                 self.check = Button(self.questions1_frame, text="Submit", font=50, bg='#99dd1c', command= lambda: self.checkb(self.solving))
                 self.check.grid(column=3, row=4)
-
                 self.nextb = Button(self.questions1_frame, text="Next", command=self.question_win)
                 self.nextb.grid(column=3,row=2) 
         
@@ -121,6 +118,7 @@ class interface:
                 
 
         def question_win(self):
+                self.nextb.destroy()
                 self.num1update = random.randrange(1,20)
                 self.num2update = random.randrange(1,20)
                 
@@ -139,11 +137,19 @@ class interface:
         #impliment loop?
         def questions2(self):
                 self.topic2_frame.grid_forget()
-                self.questions2_frame = Frame(root, width="600", height="600")
-                self.questions2_frame.grid(row=0, column=0, padx=10, pady=5)
-                self.title = Label(self.questions2_frame, text="Level Two 'topic' ").grid(column=3, row=0, pady=5)
-                self.back = Button(self.questions2_frame, text="Back", command=self.backq2).grid(column=3, row=4)
-                self.finish = Button(self.questions2_frame, text="Finished", command=self.q2gridforget).grid(column=4, row=4)
+                self.questions2_frame = Frame(root, width="600", height="600",bg="skyblue")
+                self.questions2_frame.grid(row=0, column=0)
+                self.title = Label(self.questions2_frame,font=("Arial 18 bold underline"), text="MATHS HELPER",bg="skyblue").grid(column=2, row=0)
+                self.title2 = Label(self.questions2_frame, text="Level One Addition ", font=50,bg="skyblue").grid(column=2, row=1)
+                self.question_win()
+                self.back = Button(self.questions2_frame, text="Back",bg='Orange', font=50, command=self.backq2).grid(column=1, row=4, padx=40, pady=50)
+                self.finish = Button(self.questions2_frame, text="Finished", font=50, bg="#9c57d5",command=self.q2gridforget).grid(column=3, row=0)
+                self.solving = Entry(self.questions2_frame, text="      " ,font=50)
+                self.solving.grid(column=3, row=3)
+                self.check = Button(self.questions2_frame, text="Submit", font=50, bg='#99dd1c', command= lambda: self.checkb(self.solving))
+                self.check.grid(column=3, row=4)
+                self.nextb = Button(self.questions2_frame, text="Next", command=self.question_win)
+                self.nextb.grid(column=3,row=2) 
 
         def backq2(self):
                 self.questions2_frame.grid_forget()
