@@ -21,7 +21,7 @@ class interface:
                 self.level1 = Button(self.name_win, text="Level 1", font=50, bg="#FF00FF", command=self.submit1 ).grid(column=2, row=2)
                 self.level2 = Button(self.name_win, text="Level 2", font=50, bg="#99dd1c", command=self.submit2 ).grid(column=2, row=3)
                 self.level3 = Button(self.name_win, text="Level 3", font=50, bg="#25b1e9", command=self.submit3 ).grid(column=2, row=4)
-                self.exit = Button(self.name_win, text="Exit",bg='Orange', font=50, command=self.quit).grid(column=2, row=5)
+        
         
         def submit1(self):
                 self.count = 1
@@ -52,12 +52,6 @@ class interface:
                 else:
                         self.name_win.destroy()
                         self.questions3()
-
-
-                
-        
-        def quit(self):
-            self.name_win.destroy()   
         
         def questions1(self):
                 self.name_win.destroy()
@@ -109,23 +103,24 @@ class interface:
         
         def checkb(self,var1):
                 self.score =0
-                
                 if var1.get() == str(self.correct_answer()):
                         self.correct = Label(self.questions1_frame, text="Correct!", fg="green")
                         self.correct.grid(column=3, row=3)
                         self.score +=1
                         self.total_score = Label(self.questions1_frame, text=f"You have scored {self.score} /10!").grid(column=3, row=5)
+                        self.solving.delete(0,'end')
 
                 else:
-                        wrong = Label(self.questions1_frame, text="Wrong!", fg="red")
-                        wrong.grid(column=3, row=3)
+                        self.wrong = Label(self.questions1_frame, text="Wrong!", fg="red")
+                        self.wrong.grid(column=3, row=3)
+                        self.solving.delete(0,'end')
                 
                 
 
         def question_win(self):
                 self.num1update = random.randrange(1,20)
                 self.num2update = random.randrange(1,20)
-                
+                self.wrong.destory()
                 question = Label(self.questions1_frame,font=50, text=f"{self.num1update} + {self.num2update} = ",bg="skyblue")
                 question.grid(column=2, row=2,pady=20)
                 
